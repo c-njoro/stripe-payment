@@ -5,6 +5,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+
 import React, { useEffect, useState } from "react";
 
 // Initialize Stripe outside of the component (replace with your publishable key)
@@ -75,8 +76,9 @@ const CheckoutForm = () => {
       if (error) {
         setMessage(error.message || "An unexpected error occurred");
       }
-    } catch (error: any) {
-      setMessage(error.message);
+    } catch (error) {
+      setMessage("An error occured");
+      console.log(error);
     }
 
     setIsLoading(false);
