@@ -22,11 +22,11 @@ export default async function handler(req, res) {
       first_name: "Joe",
       last_name: "Doe",
       email: "joe@doe.com",
-      host: "http://localhost:3000",
+      host: `${process.env.FRONTEND_URL}`,
       amount: amount,
       currency: "KES",
       api_ref: "test",
-      redirect_url: "http://localhost:3000/thank-you",
+      redirect_url: `${process.env.FRONTEND_URL}/thank-you`,
     });
 
     // Send the checkout URL to the frontend

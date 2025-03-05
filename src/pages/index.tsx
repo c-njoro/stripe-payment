@@ -1,9 +1,9 @@
-import CardPaymentForm from "@/components/MainPage";
+import IntaSendPage from "@/components/IntaSend";
 
 export default function Home() {
   return (
     <>
-      <CardPaymentForm />
+      <IntaSendPage />
     </>
   );
 }
