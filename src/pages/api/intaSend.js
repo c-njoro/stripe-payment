@@ -1,8 +1,13 @@
-const IntaSend = require("intasend-node");
+import IntaSend from "intasend-node";
 
 export default async function handler(req, res) {
+  const { amount } = req.body;
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
+  }
+
+  if (!amount) {
+    return res.status(400).json({ message: "Amount is required" });
   }
 
   try {
@@ -18,7 +23,7 @@ export default async function handler(req, res) {
       last_name: "Doe",
       email: "joe@doe.com",
       host: "http://localhost:3000",
-      amount: 10,
+      amount: amount,
       currency: "KES",
       api_ref: "test",
       redirect_url: "http://localhost:3000/thank-you",
